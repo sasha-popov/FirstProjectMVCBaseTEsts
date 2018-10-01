@@ -73,9 +73,6 @@ namespace NLayerApp.WEB.Controllers
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<OfferDTO, OfferViewModel>()).CreateMapper();
             var offersCompany = mapper.Map<IEnumerable<OfferDTO>, IEnumerable<OfferViewModel>>(serviceOffer.Find(User.Identity.GetUserId()));
 
-            var executersOfCompany = db.Executers.Find(x=>x.Company.UserId==User.Identity.GetUserId());
-
-            ViewBag.executorsOfCompany = executersOfCompany;
             return View(offersCompany);
         }
     }
