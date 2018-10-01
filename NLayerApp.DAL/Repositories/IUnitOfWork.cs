@@ -11,6 +11,7 @@ namespace NLayerApp.DAL.Entities.Interfaces
         IRepository<Customer> Customers { get; }
         IRepository<CompanyOffer> CompanyOffers { get; }
         IRepository<Offer> Offers { get; }
+        IRepository<Executer> Executers { get; }
         void Save();
     }
 }
