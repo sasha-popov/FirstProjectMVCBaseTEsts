@@ -1,0 +1,16 @@
+﻿@model IEnumerable<NLayerApp.WEB.Models.ModelsVM.OfferViewModel>
+@{
+    ViewBag.Title = "PageForCompany";
+}
+<div>
+    <h3>Offers of company:</h3>
+    @foreach (var offer in Model)
+    {
+        <div  style="color:#222222;width:200px;border:solid ">
+            <p>@offer.Name from category @offer.Category.Name</p>
+            </div>
+    }
+</div>
+
+
+

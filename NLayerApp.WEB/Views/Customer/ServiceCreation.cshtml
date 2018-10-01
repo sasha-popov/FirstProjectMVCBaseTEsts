@@ -1,0 +1,25 @@
+﻿@model NLayerApp.WEB.Models.ModelsVM.CustomerOfferViewModel
+@{
+    ViewBag.Title = "ServiceCreation";
+}
+
+<div>
+    <h3>Form to fill </h3>
+    <div><label>You choosed offer:</label>  @ViewBag.nameOffer</div>
+    <div><label>From category:</label>  @ViewBag.nameCategory</div>
+    @using (Html.BeginForm("ServiceCreation", "Customer", FormMethod.Post))
+    {
+        @Html.Hidden("OfferId", @ViewBag.idOffer as int?)
+        @Html.LabelFor(m => m.Content, "Describe:")
+        <br />
+            @Html.TextBoxFor(m => m.Content)
+            <br /><br />
+            @Html.LabelFor(m => m.Price, "Price:")
+            <br />
+            @Html.TextBoxFor(m => m.Price)
+            <p><input type="submit" value="Send" /></p>
+    }
+</div>
+
+
+

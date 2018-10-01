@@ -1,0 +1,14 @@
+﻿@model IEnumerable<NLayerApp.WEB.Models.ModelsVM.CompanyViewModel>
+<div>
+    <h2>Variables of companies:</h2>
+
+    <div>
+        @foreach (var company in Model)
+        {
+            <h2>@company.Name</h2>
+        }
+               
+    </div>
+
+
+</div>

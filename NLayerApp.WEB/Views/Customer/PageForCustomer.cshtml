@@ -1,0 +1,34 @@
+﻿@model IEnumerable<NLayerApp.WEB.Models.ModelsVM.CategoryViewModel>
+@{
+    ViewBag.Title = "PageFor";
+}
+
+<div>
+    <h2>Categories with offers:</h2>
+
+    <script>
+function my_f(objName) {
+var object = document.getElementById(objName);
+object.style.display == 'none' ? object.style.display = 'block' : object.style.display = 'none'
+}
+    </script>
+    <div>
+        @foreach (var category in Model)
+        {
+
+            <div id="category">
+                <a href="javascript:void(0)" onclick="my_f(@category.CategoryId)"><h2 style="color:#222222;width:150px;border:solid ">@category.Name</h2></a>
+            </div>
+            <div id=@category.CategoryId style="display:none">
+                @foreach (var offer in category.Offers)
+                {
+                        <a href='@Url.Action("ServiceCreation", "Customer", new {nameCategory= @category.Name, idOffer = @offer.OfferId, nameOffer=@offer.Name })'>
+                            <p style="color:#222222;width:150px;border:solid ">@offer.Name</p>
+                        </a>
+                }
+            </div>
+        }
+
+
+        </div>
+    </div>

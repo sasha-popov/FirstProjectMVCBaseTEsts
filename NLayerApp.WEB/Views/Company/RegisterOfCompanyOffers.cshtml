@@ -1,0 +1,31 @@
+﻿@model IEnumerable<NLayerApp.WEB.Models.ModelsVM.CategoryViewModel>
+    @{
+        ViewBag.Title = "RegisterOfCompanyOffers";
+    }
+
+    <h2>RegisterOfCompanyOffers</h2>
+<form method="post">
+    <div>
+        @{ var index = 0; }
+        @foreach (var category in Model)
+        {
+            <div id="category">
+                <h2>@category.Name:</h2>
+            </div>
+            <div id="OffersOfCategory">
+                @foreach (var offer in category.Offers)
+                {
+                    <label>
+                        <p>@offer.Name</p>
+                        @Html.CheckBox($"offers[{index}].Selected")
+                        <br>
+                    </label>
+                    @Html.Hidden($"offers[{index}].OfferId", offer.OfferId)
+                    @Html.Hidden($"offers[{index}].Name", offer.Name)
+                    @Html.Hidden($"offers[{index++}].CategoryId", category.CategoryId)
+                }
+            </div>
+        }
+        <input type="submit" value="Send" />
+    </div>
+</form>

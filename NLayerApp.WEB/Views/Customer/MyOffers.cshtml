@@ -1,0 +1,40 @@
+﻿@model IEnumerable<NLayerApp.WEB.Models.ModelsVM.CustomerOfferViewModel>
+@{
+    ViewBag.Title = "MyOffers";
+}
+
+<h2>My requests</h2>
+<table >
+        <tr >
+            <th style="border:solid">
+                Id
+            </th>
+            <th style="border:solid">
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th style="border:solid">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th style="border:solid">
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+        </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="border:solid">
+                @Html.DisplayFor(modelItem => item.CustomerOfferId)
+            </td>
+            <td style="border:solid">
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td style="border:solid">
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td style="border:solid">
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+        </tr>
+    }
+    </table>
+
